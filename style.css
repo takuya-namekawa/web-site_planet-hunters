@@ -1,0 +1,468 @@
+@charset "UTF-8";
+
+:root {
+  --main-color: #00fff5;
+}
+/*--------------------------------
+ 全体
+---------------------------------*/
+
+body {
+  font-family: "Exo", "Noto Sans JP", Arial, "Hiragino Kaku Gothic ProN",
+  "Hiragino Sans", Meiryo, sans-serif;
+
+
+  font-size: 16px;
+  color: #333;
+  background-color: #000;
+}
+
+a {
+  text-decoration: none;
+}
+
+/*--------------------------------
+ 見出し
+---------------------------------*/
+
+
+
+/*--------------------------------
+ ボタン
+---------------------------------*/
+
+.btn {
+  display: inline-block;
+  position: relative;
+  width: 230px;
+  font-size: 18px;
+  font-weight: bold;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: #000;
+  text-align: center;
+  margin: 0 auto;
+  padding: 20px;
+  /*下記の記述でフワっと光る*/
+  transition: box-shadow 0.3s;
+  background-color: var(--main-color);
+}
+
+.btn:hover {
+  /*これだけでも光る　けど、大本でトランジションをかけて時間を指定しているからフワットひかる*/
+  box-shadow: 0 0 18px 5px rgba(0, 255, 174, 0.6);
+}
+
+.btn--sm {
+  width: 164px;
+  font-size: 15px;
+  padding: 15px 0;
+}
+
+
+/*--------------------------------
+ レイアウト
+---------------------------------*/
+.container {
+  max-width: 1160px;
+  margin: 0 auto;
+  padding: 0 30px;
+}
+
+
+/*--------------------------------
+ ローディング
+---------------------------------*/
+
+
+
+
+
+/*--------------------------------
+背景動画
+---------------------------------*/
+/*場所を固定させている　先に置くことで背景画像のようになるけど素材はHTMLで張っている*/
+.bgParallax {
+  position: fixed;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  width: 100%
+}
+/*動画素材に対して疑似要素でグラデーションカラーをかけている*/
+.bgParallax::before {
+  display: block;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: linear-gradient(
+    45deg,
+    rgba(0, 0, 0, 0.2) 50%,
+    rgba(0, 0, 0, 0.5) 50%
+  );
+  background-size: 4px 4px;
+}
+
+.bgParallax-video {
+  width: 100%;
+  height: 100vh;
+  vertical-align: bottom;
+  /*下記をかけないと、採寸された動画が貼り付けされる*/
+  object-fit: cover;
+}
+
+
+
+/*--------------------------------
+ヘッダー
+---------------------------------*/
+
+.header {
+  position: fixed;
+  z-index: 10;
+  width: 100%;
+  background: linear-gradient(0deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 1) 100%);
+}
+
+.header-inner {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-content: space-between;
+  height: 100px;
+  padding: 0 30px;
+}
+
+.header-logo {
+  line-height: 1;
+}
+
+/*--------------------------------
+ グローバルナビ
+---------------------------------*/
+
+.gnav-list {
+  display: flex;
+  position: relative;
+  align-items: center;
+  justify-conent: center;
+  column-gap: 30px;
+}
+
+.gnav-item {
+  font-size: 16px;
+  line-height: 1;
+  letter-spacing: 0.1em;
+  color: var(--main-color);
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+/*--------------------------------
+ メインビジュアル
+---------------------------------*/
+
+/*.mv {*/
+  /*position: relative;*/
+/*  height: 100%;*/
+/*}*/
+
+/*.mv::after {*/
+/*  display: block;*/
+/*  content: "";*/
+/*  position: absolute;*/
+/*  right: 0;*/
+/*  bottom0: 0;*/
+/*  width: 430px;*/
+/*  height: 40px;*/
+/*  background-image: url(img/bg-line-bottom-color.svg);*/
+/*}*/
+
+
+.mv-titleArea {
+  position: absolute;
+  top: 50%;
+  left: 10%;
+  color: #fff;
+  transform: translateY(-50%);
+}
+
+.mv-label {
+  font-weight: 700;
+  font-size: 32px;
+  line-height: 1;
+  letter-spacing: 0.2em;
+  margin-bottom: 30px;
+}
+
+.mv-title {
+  font-weight: 400;
+  font-size: 140px;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  margin-bottom: 10px;
+}
+
+.mv-subtitle {
+  font-weight: 500;
+  font-size: 34px;
+  line-height: 1;
+  letter-spacing: 1em;
+  margin-bottom: 50px;
+}
+
+.newsBox {
+  position: absolute;
+  width: 360px;
+  right: 30px;
+  bottom: 70px;
+  /*下記が無いとアニメーションしたときに要素をはみ出してしまうから設定*/
+  overflow: hidden;
+  align-items: center;
+  line-height: 1;
+  background: #000000;
+  border: 1px solid #00FFF5;
+}
+
+.newsBox-date {
+  margin-right: 1em;
+}
+
+.newsBox-body {
+  color: var(--main-color);
+}
+
+.newsBox p {
+  display: inline-block;
+  font-size: 14px;
+  line-height: 1;
+  color: #fff;
+  white-space: nowrap;
+  padding: 8px 0;
+  padding-left: 360px;
+  margin: 0;
+  animation-name: newsBox-animation;
+  animation-duration: 10s;
+  animation-timing-function: linear;
+  animation-iteration-count: infinite;
+}
+
+@keyframes newsBox-animation {
+  from {
+    transform: translate(0%);
+  }
+  to {
+    transform: translate(-100%);
+  }
+}
+
+.scrolldown {
+  position: absolute;
+  padding-left:  10px;
+  bottom: 20px;
+  left: 20px;
+  color: var(--main-color);
+  /*下記を記述すると文字列の角度を変える事が出来る*/
+  -webkit-writing-mode: vertical-rl;
+}
+
+/*Scrollテキストの描写*/
+.scrolldown span {
+  /*描画位置*/
+  position: absolute;
+  bottom: 10px;
+  left: 10px;
+  font-size: 0.7rem;
+  letter-spacing: 0.05em;
+  /*テキストの形状*/
+  color: var(--main-color);
+  writing-mode: vertical-rl;
+
+  -webkit-writing-mode: vertical-rl;
+  /*縦書き設定*/
+  -ms-writing-mode: tb-rl;
+}
+
+/* 丸の描写 */
+.scrolldown:before {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  left: -4px;
+  /*丸の形状*/
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--main-color);
+  /*丸の動き1.6秒かけて透過し、永遠にループ*/
+  animation: circlemove 1.6s ease-in-out infinite,
+    cirlemovehide 1.6s ease-out infinite;
+}
+
+/*下からの距離が変化して丸の全体が上から下に動く*/
+@keyframes circlemove {
+  0% {
+    bottom: 45px;
+  }
+  100% {
+    bottom: -5px;
+  }
+}
+
+/*上から下にかけて丸が透過→不透明→透過する*/
+@keyframes cirlemovehide {
+  0% {
+    opacity: 0;
+  }
+  50% {
+    opacity: 1;
+  }
+  80% {
+    opacity: 0.9;
+  }
+  100% {
+    opacity: 0;
+  }
+}
+
+/* 線の描写 */
+.scrolldown:after {
+  content: "";
+  /*描画位置*/
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  /*線の形状*/
+  width: 2px;
+  height: 50px;
+  background: var(--main-color);
+}
+
+
+/*--------------------------------
+ ストーリー
+---------------------------------*/
+
+.story {
+  color: #fff;
+  padding: 140px 0;
+  background-color: #000;
+  background-image: url(img/bg_story.webp);
+  background-repeat: no-repeat;
+  position: absolute;
+  height: 1408px;
+  width: 100%;
+  top: 582px;
+  background-position: center center;
+  background-size: cover;
+}
+
+/*親要素カラム割りの指定*/
+.story-columnWrap {
+  display: grid;
+  row-gap: 90px;
+}
+/*子要素にカラム指定*/
+.story-column {
+  display: flex;
+  align-items: center;
+  column-gap: 80px;
+}
+
+.story-desc {
+  flex: 0 1 50%;
+}
+
+.headingPrimary {
+
+  width: 266px;
+  height: 80px;
+  left: 165px;
+  top: 966px;
+  font-weight: 700;
+  font-size: 80px;
+  line-height: 1;
+  letter-spacing: 0.05em;
+  color: var(--main-color);
+  margin-bottom: 70px;
+}
+
+.story-title {
+
+  font-family: 'Noto Sans JP Black';
+  font-style: normal;
+  font-weight: 900;
+  font-size: 32px;
+  line-height: 48px;
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+  margin-bottom: 30px;
+}
+
+
+.story-text p{
+  width: 599px;
+  height: 173px;
+  left: 165px;
+  top: 1242px;
+
+  font-family: 'Noto Sans JP Medium';
+  font-style: normal;
+  font-weight: 400;
+  font-size: 16px;
+  line-height: 29px;
+  /* または180% */
+
+  letter-spacing: 0.05em;
+  color: #FFFFFF;
+}
+
+.story-img {
+  flex: 1;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
