@@ -21,6 +21,14 @@ a {
   text-decoration: none;
 }
 
+/*これ付けないと画像がクソデカくてレイアウト崩れる*/
+img {
+  max-width: 100%;
+  height: auto;
+  vertical-align: bottom;
+}
+
+
 /*--------------------------------
  見出し
 ---------------------------------*/
@@ -381,7 +389,7 @@ a {
   background-image: url(img/bg_story.webp);
   background-repeat: no-repeat;
   position: absolute;
-  height: 1408px;
+  height: 1300px;
   width: 100%;
   top: 582px;
   background-position: center center;
@@ -449,16 +457,41 @@ a {
 }
 
 .story-img {
+  transform: skew(-5deg, 0deg);
+  box-shadow: 7px 7px var(--main-color);
   flex: 1;
 }
 
+.story-column:nth-child(2n) {
+  flex-direction: row-reverse;
+}
 
+.story-column:nth-child(2n) .story-img {
+  transform: skew(5deg, 0deg);
+  box-shadow: -7px 7px var(--main-color);
+}
 
+.cta.cta--01 {
+  position: absolute;
+  height: 1408px;
+  width: 100%;
+  top: 1876px;
 
+  color: #fff
+}
 
+.cta-body {
+  text-align: center;
+}
 
-
-
+.cta-title {
+  font-weight: 700;
+  font-size: 64px;
+  line-height: 64px;
+  letter-spacing: 0.05em;
+  margin-top: 100px;
+  margin-bottom: 20px;
+}
 
 
 
